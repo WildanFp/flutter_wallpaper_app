@@ -7,7 +7,7 @@ Widget brandName() {
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
     mainAxisSize: MainAxisSize.min,
-    children: <Widget>[
+    children: const <Widget>[
       Text(
         "Wallpaper",
         style: TextStyle(color: Colors.black87, fontFamily: 'Overpass'),
@@ -22,10 +22,10 @@ Widget brandName() {
 
 Widget WallpapersList({required List<WallpaperModel> wallpapers, context}) {
   return Container(
-    padding: EdgeInsets.symmetric(horizontal: 16),
+    padding: const EdgeInsets.symmetric(horizontal: 16),
     child: GridView.count(
       shrinkWrap: true,
-      physics: ClampingScrollPhysics(),
+      physics: const ClampingScrollPhysics(),
       crossAxisCount: 2,
       childAspectRatio: 0.6,
       mainAxisSpacing: 6.0,
@@ -44,14 +44,12 @@ Widget WallpapersList({required List<WallpaperModel> wallpapers, context}) {
           },
           child: Hero(
             tag: (wallpaper.src!.portrait)!,
-            child: Container(
-              child: ClipRRect(
-                  borderRadius: BorderRadius.circular(16),
-                  child: Image.network(
-                    (wallpaper.src!.portrait)!,
-                    fit: BoxFit.cover,
-                  )),
-            ),
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: Image.network(
+                  (wallpaper.src!.portrait)!,
+                  fit: BoxFit.cover,
+                )),
           ),
         ));
       }).toList(),
